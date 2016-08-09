@@ -13,23 +13,34 @@
 '
 ' You should have received a copy of the GNU General Public License k
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
-Imports System
-Imports System.Data
-Imports System.Windows.Forms
-Imports System.Drawing
+
 Imports instat.Translations
-Public Class dlgFont
-    Private Sub dlgFont_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim dlgFont As System.Windows.Forms.FontDialog
-
+Public Class dlgColourbyProperty
+    Public bFirstLoad As Boolean = True
+    Private Sub dlgColourbyProperty_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         autoTranslate(Me)
-        dlgFont = New System.Windows.Forms.FontDialog
-        'setting font
-        If dlgFont.ShowDialog() = DialogResult.OK Then
-            Debug.WriteLine(dlgFont.Font)
-            Debug.WriteLine(dlgFont.Color)
-
+        If bFirstLoad Then
+            InitialiseDialog()
+            SetDefaults()
+            TestOKEnabled()
+            bFirstLoad = False
         End If
+    End Sub
 
+    Private Sub InitialiseDialog()
+
+    End Sub
+
+    Private Sub SetDefaults()
+
+    End Sub
+
+    Private Sub TestOKEnabled()
+
+    End Sub
+
+    Private Sub ucrBase_ClickReset(sender As Object, e As EventArgs) Handles ucrBase.ClickReset
+        SetDefaults()
+        TestOKEnabled()
     End Sub
 End Class

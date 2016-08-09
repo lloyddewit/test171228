@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class dlgRandomSubset
+Partial Class dlgColourbyProperty
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,22 +27,22 @@ Partial Class dlgRandomSubset
         '
         'ucrBase
         '
-        Me.ucrBase.Location = New System.Drawing.Point(12, 196)
+        Me.ucrBase.Location = New System.Drawing.Point(12, 197)
         Me.ucrBase.Name = "ucrBase"
-        Me.ucrBase.Size = New System.Drawing.Size(410, 53)
+        Me.ucrBase.Size = New System.Drawing.Size(410, 52)
         Me.ucrBase.TabIndex = 0
         '
-        'dlgRandomSubset
+        'dlgColourbyProperty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(429, 261)
+        Me.ClientSize = New System.Drawing.Size(422, 261)
         Me.Controls.Add(Me.ucrBase)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "dlgRandomSubset"
+        Me.Name = "dlgColourbyProperty"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Tag = "Random_Subset"
-        Me.Text = "Random Subset"
+        Me.Tag = "Colour_by_Property"
+        Me.Text = "Colour by Property"
         Me.ResumeLayout(False)
 
     End Sub
