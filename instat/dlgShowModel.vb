@@ -14,7 +14,7 @@
 ' You should have received a copy of the GNU General Public License k
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Imports instat.Translations
-Public Class dlgTablePlus
+Public Class dlgShowModel
     Public bFirstLoad As Boolean = True
     Private Sub dlgTablePlus_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         autoTranslate(Me)
@@ -52,6 +52,8 @@ Public Class dlgTablePlus
         ucrInputProbabilities.Reset()
         rdoQuantiles.Checked = True
         chkSingleValues.Checked = True
+        chkGraphResults.Checked = True
+        DisplayGraphResults()
         results()
         ReceiverLabels()
         SaveResults()
@@ -108,12 +110,12 @@ Public Class dlgTablePlus
     Private Sub SaveResults()
         If chkSaveResults.Checked AndAlso Not chkSingleValues.Checked Then
             ucrInputNewColNameforTablePlus.Visible = True
-            ucrBase.clsRsyntax.SetAssignTo(ucrInputNewColNameforTablePlus.GetText(), strTempColumn:=ucrInputNewColNameforTablePlus.GetText(), strTempDataframe:=ucrSelectorForDataFrame.ucrAvailableDataFrames.cboAvailableDataFrames.Text, bAssignToIsPrefix:=True)
+            ucrBase.clsRsyntax.SetAssignTo(ucrInputNewColNameforTablePlus.GetText(), strTempColumn:=ucrInputNewColNameforTablePlus.GetText(), strTempDataframe:=ucrSelectorForDataFrame.ucrAvailableDataFrames.cboAvailableDataFrames.Text, bAssignToIsPrefix:=False)
             ucrBase.clsRsyntax.bExcludeAssignedFunctionOutput = True
             ucrBase.clsRsyntax.iCallType = 0
         Else
             ucrBase.clsRsyntax.RemoveAssignTo()
-            ucrBase.clsRsyntax.iCallType = 2
+            ucrBase.clsRsyntax.iCallType = 0
             ucrInputNewColNameforTablePlus.Visible = False
             ucrBase.clsRsyntax.bExcludeAssignedFunctionOutput = False
         End If
@@ -135,7 +137,6 @@ Public Class dlgTablePlus
         ucrBase.clsRsyntax.AddParameter("dist", Chr(34) & ucrDistributionsFOrTablePlus.clsCurrDistribution.strRName & Chr(34))
         pqParameters()
         If rdoProbabilities.Checked Then
-            ucrInputNewColNameforTablePlus.SetPrefix("prob")
             ucrInputNewColNameforTablePlus.SetName("prob")
             lblQuantValues.Visible = True
             lblProbValues.Visible = False
